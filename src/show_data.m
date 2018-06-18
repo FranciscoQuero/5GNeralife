@@ -1,6 +1,38 @@
 function [ ] = show_data(  criteria, type, data, rx_id, pairing, hold_on, input )
-%SHOW_DATA Summary of this function goes here
-%   Detailed explanation goes here
+%SHOW_DATA Plots the selected data with automatic legends and axis, with
+%the possibility of plotting in the same previous figure
+% Input:
+%   criteria
+%   The pairing criteria of the desired data. It can be 'SINR' or
+%   'Distance'. By default, Distance is selected.
+%
+%   type
+%   String which contains macro- or micro-cell for user information
+%
+%   data
+%   String which contains the data that it will be plotted. It can be
+%   'SINR', 'Power', 'Pairing' and 'Capacity'
+%
+%   rx_id
+%   Index of the selected Rx
+%
+%   pairing
+%   Pairing matrix of the simulation
+%
+%   hold_on
+%   Index that is false if a new Figure is needed
+%
+%   input
+%   Data matrix which contains data that will be represented.
+%
+% 5Gneralife Copyright (C) 2018 Francisco Quero
+% e-mail: fjqr@correo.ugr.es
+%
+% 5Gneralife is free software: you can redistribute it and/or modify
+% it under the terms of the GNU Lesser General Public License as published
+% by the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+
     len = length( input(1,1,:) );
     dist = 1:len;
     
@@ -22,7 +54,6 @@ function [ ] = show_data(  criteria, type, data, rx_id, pairing, hold_on, input 
     end
     
     %% Ploting
-    %data_for_plotting = zeros(1:len);
     title_gen = ['of the Rx' num2str(rx_id,'%02d')];
     
     if hold_on == 0

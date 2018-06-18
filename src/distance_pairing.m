@@ -1,4 +1,27 @@
 function [ pairing ] = distance_pairing( layout, snap )
+%DISTANCE_PAIRING Decides which is the best BS to pairing according to the
+%nearest one
+%
+% Input:
+%   layout
+%   A qd_layout QuaDRiGa object which contains each Rx and Bs in order to
+%   pair them
+%
+%   snap
+%   Number of snapshots that contains the trajectory of every Rx
+%
+% Output:
+%   pairing
+%   A m-n matrix containing the pairing for each receiver (m) and snapshot (n).
+%
+% 5Gneralife Copyright (C) 2018 Francisco Quero
+% e-mail: fjqr@correo.ugr.es
+%
+% 5Gneralife is free software: you can redistribute it and/or modify
+% it under the terms of the GNU Lesser General Public License as published
+% by the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+
     no_rx = layout.no_rx;
     no_tx = layout.no_tx;
     

@@ -1,5 +1,5 @@
 function han = visualize_layer( h_layout, tx , rx, show_names , create_new_figure, type )
-%VISUALIZE Plots the layout. 
+%VISUALIZE_LAYER Plots the layout. 
 %
 % Calling object:
 %   Single object
@@ -21,11 +21,13 @@ function han = visualize_layer( h_layout, tx , rx, show_names , create_new_figur
 %   han
 %   The figure handle
 %
+% This file is a modified version of an original function from QuaDRiGa
+% (http://quadriga-channel-model.de/)
 %
-% QuaDRiGa Copyright (C) 2011-2017 Fraunhofer Heinrich Hertz Institute
-% e-mail: quadriga@hhi.fraunhofer.de
+% 5Gneralife Copyright (C) 2018 Francisco Quero
+% e-mail: fjqr@correo.ugr.es
 %
-% QuaDRiGa is free software: you can redistribute it and/or modify
+% 5Gneralife is free software: you can redistribute it and/or modify
 % it under the terms of the GNU Lesser General Public License as published
 % by the Free Software Foundation, either version 3 of the License, or
 % (at your option) any later version.

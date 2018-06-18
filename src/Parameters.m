@@ -1,7 +1,13 @@
 classdef Parameters
-    %PARAMS Summary of this class goes here
-    %   Detailed explanation goes here
-    
+    %PARAMS Parameters class contains every simulation parameter that is
+    %needed
+    % 5Gneralife Copyright (C) 2018 Francisco Quero
+    % e-mail: fjqr@correo.ugr.es
+    %
+    % 5Gneralife is free software: you can redistribute it and/or modify
+    % it under the terms of the GNU Lesser General Public License as published
+    % by the Free Software Foundation, either version 3 of the License, or
+    % (at your option) any later version.
     properties
         freq_uma; % UMa Frequency in Hz
         freq_umi; % UMi Frequency in Hz

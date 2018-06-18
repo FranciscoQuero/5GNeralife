@@ -1,6 +1,33 @@
 function [ channel_uma, channel_umi, layout_uma, layout_umi ] = generate_channels( params )
-%GENERATE_CHANNELS Summary of this function goes here
-%   Detailed explanation goes here
+%GENERATE_CHANNELS Generates the channel coefficients of an environment
+%simulated according to the previously specified simulation parameters.
+%
+% Input:
+%   params
+%   A Parameters object that contains every simulation parameter.
+%
+% Output:
+%   channel_uma
+%   A QuaDRiGa qd_channel object that contains the channel coefficients of 
+%   macro-cell layout 
+%
+%   channel_umi
+%   A QuaDRiGa qd_channel object that contains the channel coefficients of 
+%   micro-cell layout 
+%
+%   layout_uma
+%   A QuaDRiGa qd_layout object that contains the macro-cell generated layout 
+%
+%   layout_umi
+%   A QuaDRiGa qd_layout object that contains the micro-cell generated layout 
+%
+% 5Gneralife Copyright (C) 2018 Francisco Quero
+% e-mail: fjqr@correo.ugr.es
+%
+% 5Gneralife is free software: you can redistribute it and/or modify
+% it under the terms of the GNU Lesser General Public License as published
+% by the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
 
 los_uma = params.los_uma;
 los_umi = params.los_umi;
@@ -56,10 +83,13 @@ layout_umi.rx_array = aMT;                                     % MT antenna sett
 
 %% Write all streets in one layout
 
+load track_gen_2.mat
+
 for a = 1 : params.number_of_rx
     trk = qd_track('street', params.walked_distance, randi(360), 50, 87, 83, 10, 0.85);    % Street
     trk.initial_position = layout_uma.rx_position(:,a);                             % Strat-pos
     trk.name = layout_uma.rx_name{a};                                               % Unique name
+    trk = track.copy;
     layout_uma.track(1,a) = trk.copy;                                                    % Assign to layout
     layout_uma.track(1,a).set_scenario( scenarios_uma, prob_uma, 10 ,30, 12 );
     layout_umi.track(1,a) = trk.copy;

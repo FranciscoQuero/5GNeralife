@@ -10,6 +10,14 @@ function [ ] = show_enviroment( l )
 %   l
 %   a vector with two layouts
 %
+% 5Gneralife Copyright (C) 2018 Francisco Quero
+% e-mail: fjqr@correo.ugr.es
+%
+% 5Gneralife is free software: you can redistribute it and/or modify
+% it under the terms of the GNU Lesser General Public License as published
+% by the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
+
     figure('position', [50 50 900 600])
     
     color = ['g', 'r'];
@@ -31,11 +39,10 @@ function [ ] = show_enviroment( l )
         hold on
     end
     
-    h = zeros(3, 1);
+    h = zeros(2, 1);
     h(1) = plot(NaN,NaN,'^r');
     h(2) = plot(NaN,NaN,'^g');
-    h(3) = plot(NaN,NaN,'ob');
-    legend(h, 'UMa BS position','UMi BS position','Rx position');
+    legend(h, 'UMa BS position','UMi BS position');
     
     view(-33,48)
     hold off

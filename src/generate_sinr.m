@@ -1,6 +1,37 @@
 function [ sinr, rx_power ] = generate_sinr( channel, layout, tx_power, No )
-%GENERATE_SINR Summary of this function goes here
-%   Detailed explanation goes here
+%GENERATE_SINR Calculates SINR for the Rx elements of one layout by using
+%their channel coefficients, as well as Rx power.
+%
+% Input:
+%   channel
+%   A QuaDRiGa qd_channel object that contains the channel coefficients of 
+%   the layout 
+%
+%   layout
+%   A QuaDRiGa qd_layout object that contains the layout
+%
+%   tx_power
+%   The transmit power of every BS, in Watts
+%
+%   No
+%   The spectral power density of the termical noise
+%
+% Output:
+%   sinr
+%   A m-n-p matrix containing the sinr for each pairing criteria (m), 
+%   receiver (n) and snapshot (p).
+%
+%   rx_power
+%   A m-n-p sized matrix that contains the received power for each Rx (m),
+%   each BS (n) at each snapshot (p)
+%
+% 5Gneralife Copyright (C) 2018 Francisco Quero
+% e-mail: fjqr@correo.ugr.es
+%
+% 5Gneralife is free software: you can redistribute it and/or modify
+% it under the terms of the GNU Lesser General Public License as published
+% by the Free Software Foundation, either version 3 of the License, or
+% (at your option) any later version.
     
     number_of_rx = layout.no_rx;
     no_snap_per_track = channel(1,1).no_snap;
